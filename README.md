@@ -49,26 +49,4 @@ A web interface is developed using Flask to collect student details and display 
 - Algorithm: Random Forest Regressor
 - Output: Predicted Salary
 
-## Project Structure
 
-placement-salary-prediction/
-│── app.py
-│── placement_prediction.py
-│── salary_prediction.py
-│── placement_model.pkl
-│── salary_model.pkl
-│── requirements.txt
-│── predictions.csv
-│
-├── templates/
-│   ├── index.html
-│   ├── result.html
-│
-├── static/
-│   ├── style.css
-│
-├── dataset/
-│   ├── student_data.csv
-│
-└── powerbi/
-    └── dashboard.pbix
