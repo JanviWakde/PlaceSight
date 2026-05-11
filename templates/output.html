@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlaceSight Result</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style2.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 PlaceSight Result</h1>
+        </header>
+        
+        <main>
+            <div class="result-container">
+                <h2>Your Prediction Results</h2>
+                <div class="output">
+                    <p>{{ output }}</p>
+                    <p>{{ output2 }}</p>
+                </div>
+                
+                <!-- Fixed button: go back to input form -->
+                <a href="/index" class="back-button">Predict Again</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

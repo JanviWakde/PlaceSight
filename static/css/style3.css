@@ -1,0 +1,206 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main background */
+.main {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(20,20,40,0.8)), 
+                url('../images/img.png') center/cover no-repeat fixed;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+/* Navbar */
+.navbar {
+    max-width: 1200px;
+    height: 75px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 20px 0;
+}
+
+/* Logo */
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #FFD700, #ff7200);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+}
+
+/* Menu */
+.menu ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff7200, #FFD700);
+    transition: width 0.3s ease;
+}
+
+.menu ul li a:hover {
+    color: #ff7200;
+    background: rgba(255,114,0,0.1);
+}
+
+.menu ul li a:hover::before {
+    width: 80%;
+}
+
+/* Content Section */
+.content {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 60px 40px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+    animation: slideUp 0.8s ease;
+}
+
+.content h2 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #FFD700, #ff7200);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+
+.content .par {
+    font-size: 19px;
+    line-height: 2;
+    color: rgba(255,255,255,0.95);
+    text-align: justify;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    border-left: 4px solid #ff7200;
+}
+
+/* Feature Cards */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    padding: 20px 0;
+}
+
+.feature-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,114,0,0.3);
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,114,0,0.15);
+    border-color: #ff7200;
+    box-shadow: 0 15px 40px rgba(255,114,0,0.4);
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #FFD700;
+}
+
+.feature-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+}
+
+/* Decorative elements */
+.content::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,114,0,0.2), transparent);
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+    z-index: -1;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+    
+    .menu ul {
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .content {
+        margin: 40px 20px;
+        padding: 40px 25px;
+    }
+    
+    .content h2 {
+        font-size: 32px;
+    }
+    
+    .content .par {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+    
+    .logo {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlaceSight Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Placement Prediction Form</h1>
+        </header>
+        
+        <form action="{{ url_for('predict') }}" method="GET">
+            <div class="form-grid">
+
+               <div class="form-group">
+               <label>👤 Full Name</label>
+               <input 
+                 type="text" 
+                 name="name" 
+                 required
+                 pattern="[A-Za-z ]+"
+                 title="Only alphabets are allowed"
+                 oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '')">
+                </div>
+
+                <!--<div class="form-group">
+                    <label>👤 Full Name</label>
+                    <input type="text" name="name" required>
+                </div> -->
+                
+                <div class="form-group">
+                    <label>🎓 Branch</label>
+                    <select name="branch" required>
+                        <option value="" disabled selected>Select your branch</option>
+                        <option value="CSE">Computer Science Engineering</option>
+                        <option value="IT">Information Technology</option>
+                        <option value="ENTC">Electronics & Telecommunication</option>
+                        <option value="EE">Electrical Engineering</option>
+                        <option value="MECH">Mechanical Engineering</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>📈 CGPA</label>
+                    <input type="number" name="cgpa" min="0" max="10" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>💻 Technical Skills</label>
+                    <input 
+                        type="text" 
+                        name="skills" 
+                        placeholder="Python, SQL, Java"
+                        required
+                        pattern="[A-Za-z, ]+"
+                        title="Only text, commas, and spaces are allowed"
+                        oninput="this.value = this.value.replace(/[^A-Za-z, ]/g, '')"
+                    >
+                </div>
+
+                <!--<div class="form-group">
+                    <label>💻 Technical Skills</label>
+                    <input type="text" name="skills" placeholder="Python, SQL, Java" required>
+                </div> -->
+                
+                <div class="form-group">
+                    <label>🏢 Internship Experience</label>
+                    <select name="internship" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>🏆 Hackathon Participation</label>
+                    <select name="hackathon" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>🔧 Major Projects</label>
+                    <input type="number" name="projects" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>📜 Certifications</label>
+                    <input type="number" name="workshops" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>⚙️ Mini Projects</label>
+                    <input type="number" name="mini_projects" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>🗣️ Communication Rating (0–5)</label>
+                    <input type="number" name="communication_skills" min="0" max="5" step="0.1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>📚 12th Percentage</label>
+                    <input type="number" name="tw_percentage" min="0" max="100" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>📖 10th Percentage</label>
+                    <input type="number" name="te_percentage" min="0" max="100" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>⚠️ Active Backlogs</label>
+                    <input type="number" name="backlogs" min="0" required>
+                </div>
+
+            </div>
+            
+            <button type="submit">Predict My Placement</button>
+        </form>
+    </div>
+</body>
+</html>

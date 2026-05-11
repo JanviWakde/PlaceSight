@@ -1,0 +1,270 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #ff7200;
+    --gold-color: #FFD700;
+    --background-color: rgba(0, 0, 0, 0.9);
+    --text-color: #ecf0f1;
+}
+
+body, html {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(20,20,40,0.9)),
+                url('../images/img.png') center/cover no-repeat fixed;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 900px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 50px;
+    background: var(--background-color);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255,114,0,0.3);
+    animation: zoomIn 0.6s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--gold-color), var(--accent-color));
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 0.8s ease;
+}
+
+h1 {
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, var(--gold-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 10px rgba(255,114,0,0.3);
+    margin: 0;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.result-container {
+    text-align: center;
+    animation: fadeInUp 1s ease;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--gold-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.output {
+    font-size: 1.3rem;
+    line-height: 2;
+    padding: 40px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    border: 2px solid rgba(255,114,0,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.output::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,114,0,0.1), transparent);
+    animation: rotate 10s linear infinite;
+}
+
+.output p {
+    position: relative;
+    z-index: 1;
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-color);
+    font-weight: 500;
+    text-align: left;
+}
+
+.output p:first-child {
+    font-size: 1.4rem;
+    color: var(--gold-color);
+    font-weight: 600;
+    border-left-color: var(--gold-color);
+}
+
+/* Success/Failure indicator */
+.output p:last-child {
+    animation: pulse 2s ease infinite;
+}
+
+/* Back button */
+.back-button {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, var(--accent-color), #ff3300);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(255,114,0,0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.back-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.back-button:hover::before {
+    left: 100%;
+}
+
+.back-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(255,114,0,0.6);
+}
+
+/* Decorative elements */
+.container::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,114,0,0.2), transparent);
+    border-radius: 50%;
+    bottom: -100px;
+    right: -100px;
+    z-index: 0;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 35px 25px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .output {
+        font-size: 1.1rem;
+        padding: 30px 20px;
+    }
+    
+    .output p:first-child {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 25px 20px;
+    }
+    
+    .output {
+        font-size: 1rem;
+    }
+}
